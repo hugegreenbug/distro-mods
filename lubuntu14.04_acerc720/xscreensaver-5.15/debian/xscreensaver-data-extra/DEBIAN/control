@@ -1,0 +1,42 @@
+Package: xscreensaver-data-extra
+Source: xscreensaver
+Version: 5.15-3ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 6597
+Depends: libc6 (>= 2.15), libgdk-pixbuf2.0-0 (>= 2.22.0), libgl1-mesa-glx | libgl1, libglib2.0-0 (>= 2.12.0), libglu1-mesa | libglu1, libx11-6, libxext6, libxmu6, libxt6, xscreensaver-data (>= 5.04-3), dictionaries-common, libjpeg-progs, netpbm
+Enhances: gnome-screensaver, xscreensaver
+Conflicts: kscreensaver-xsavers (<< 4:3.5.9-1), xscreensaver (<< 5.04-3)
+Breaks: gnome-screensaver (<< 2.26), kscreensaver-xsaver (<= 4:4.2.4-1)
+Replaces: xscreensaver (<< 5.04-3), xscreensaver-data (<< 5.08-0ubuntu4)
+Section: x11
+Priority: optional
+Homepage: http://www.jwz.org/xscreensaver/
+Description: data files to be shared among screensaver frontends
+ XScreenSaver is a modular screen saver and locker for X11,
+ containing more than 200 screen savers.
+ .
+ This package contains the rest of the 2D screen saver modules
+ from the xscreensaver collection. This package is used by both
+ xscreensaver and gnome-screensaver.
+ .
+ This is the set of non-GL screensavers not shipped by default:
+ deco, distort, galaxy, metaballs, penrose, ripples, shadebobs, slidescreen,
+ sonar, swirl, ant, anemone, anemotaxis, apollonian, apple2, attraction,
+ barcode, blaster, blitspin, bouboule, boxfit, braid, bsod, bubbles, bumps,
+ ccurve, celtic, cloudlife, compass, coral, critical, crystal, cynosure,
+ decayscreen, deluxe, demon, discrete, drift, epicycle, eruption, euler2d,
+ fadeplot, fireworkx, flag, flame, flow, fluidballs, fontglide, forest, goop,
+ grav, greynetic, halftone, halo, helix, hopalong, hyperball,
+ hypercube, ifs, imsmap, interaggregate, interference, intermomentary, jigsqw,
+ juggle, julia, memscroller, mismunch, moire, moire2, mountain, munch,
+ nerverot, noseguy, pacman, pedal, penetrate, petry, phosphor, piecewise,
+ polyominoes, pong, pyro, qiz, rd-bomb, rocks, rorschach, rotor, rotzoomer,
+ sierpinski, slip, speedmine, sphere, spiral, spotlight, squiral, starfish,
+ strange, substrate, t3d, thornbird, triangle, truchet, twang, vermiculate,
+ vidwhacker, vines, wander, whirlwindwarp, whirlygig, worm,
+ wormhole, xanalogtv, xflame, xjack, xmatrix, xrayswarm, xspirograph, zoom.
+ .
+ More display modes can be found in the xscreensaver-data, xscreensaver-gl
+ and xscreensaver-gl-extra packages.
+Original-Maintainer: Tormod Volden <debian.tormod@gmail.com>

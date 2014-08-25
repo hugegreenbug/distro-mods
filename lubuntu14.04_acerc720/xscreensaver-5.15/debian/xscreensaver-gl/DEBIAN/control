@@ -1,0 +1,30 @@
+Package: xscreensaver-gl
+Source: xscreensaver
+Version: 5.15-3ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1132
+Depends: libc6 (>= 2.14), libgdk-pixbuf2.0-0 (>= 2.22.0), libgl1-mesa-glx | libgl1, libglib2.0-0 (>= 2.12.0), libglu1-mesa | libglu1, libx11-6, libxext6, libxmu6, libxt6
+Suggests: xscreensaver
+Conflicts: xscreensaver (<< 5.04-3)
+Breaks: gnome-screensaver (<< 2.26), kscreensaver-xsaver (<= 4:4.2.4-1)
+Replaces: xscreensaver-data (<< 5.10-3), xscreensaver-gl-extra (<< 5.08-0ubuntu4)
+Section: x11
+Priority: optional
+Homepage: http://www.jwz.org/xscreensaver/
+Description: GL(Mesa) screen hacks for xscreensaver
+ XScreenSaver is a modular screen saver and locker for X11,
+ containing more than 200 screen savers.
+ .
+ This package contains a small selection of 3D (OpenGL) screen
+ saver modules from the xscreensaver collection. This package is
+ used by both xscreensaver and gnome-screensaver.
+ .
+ This is the set of GL screensavers shipped by default:
+ antspotlight,  glblur, glcells,  glmatrix, glschool,
+ glslideshow, gltext, and hypertorus.
+ More GL screensavers can be found in the xscreensaver-gl-extra package.
+ .
+ More display modes can be found in the xscreensaver-data,
+ xscreensaver-data-extra and xscreensaver-gl-extra packages.
+Original-Maintainer: Tormod Volden <debian.tormod@gmail.com>

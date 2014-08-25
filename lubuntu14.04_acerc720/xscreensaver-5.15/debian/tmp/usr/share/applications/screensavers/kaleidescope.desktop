@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=Kaleidescope
+Exec=/usr/lib/xscreensaver/kaleidescope -root
+TryExec=/usr/lib/xscreensaver/kaleidescope
+Comment=A simple kaleidoscope. See also "GLeidescope". http://en.wikipedia.org/wiki/Kaleidoscope Written by Ron Tapia.
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Screensaver;
+OnlyShowIn=GNOME;

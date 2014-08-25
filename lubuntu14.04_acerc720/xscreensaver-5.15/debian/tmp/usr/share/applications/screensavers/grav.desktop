@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=Grav
+Exec=/usr/lib/xscreensaver/grav -root
+TryExec=/usr/lib/xscreensaver/grav
+Comment=This draws a simple orbital simulation. With trails enabled, it looks kind of like a cloud-chamber photograph. Written by Greg Bowering.
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Screensaver;
+OnlyShowIn=GNOME;

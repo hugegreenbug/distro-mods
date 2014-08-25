@@ -1,0 +1,28 @@
+Package: xscreensaver-data
+Source: xscreensaver
+Version: 5.15-3ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 412
+Depends: libc6 (>= 2.14), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.12.0), libx11-6, libxmu6, libxt6, libwww-perl
+Suggests: xscreensaver
+Conflicts: kscreensaver-xsavers (<< 4:3.5.9-1), xscreensaver (<< 5.04-3)
+Breaks: gnome-screensaver (<< 2.26), kscreensaver-xsaver (<= 4:4.2.4-1)
+Replaces: gnome-screensaver (<< 2.15.4-0ubuntu1), xscreensaver (<< 5.04-3), xscreensaver-data-extra (<< 5.08-0ubuntu4)
+Section: x11
+Priority: optional
+Homepage: http://www.jwz.org/xscreensaver/
+Description: data files to be shared among screensaver frontends
+ XScreenSaver is a modular screen saver and locker for X11,
+ containing more than 200 screen savers.
+ .
+ This package contains a small selection of graphical screen saver
+ modules (listed below) from the xscreensaver collection. This package
+ is used by both xscreensaver and gnome-screensaver.
+ .
+ This is the selected set of non-GL screensavers shipped by default:
+ fiberlamp and fuzzyflakes.
+ .
+ More display modes can be found in xscreensaver-data-extra, xscreensaver-gl
+ and xscreensaver-gl-extra packages.
+Original-Maintainer: Tormod Volden <debian.tormod@gmail.com>

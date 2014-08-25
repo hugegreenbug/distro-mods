@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=Drift
+Exec=/usr/lib/xscreensaver/drift -root
+TryExec=/usr/lib/xscreensaver/drift
+Comment=Drifting recursive fractal cosmic flames. Written by Scott Draves.
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Screensaver;
+OnlyShowIn=GNOME;

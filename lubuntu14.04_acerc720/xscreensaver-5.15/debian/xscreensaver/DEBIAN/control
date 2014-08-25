@@ -1,0 +1,25 @@
+Package: xscreensaver
+Version: 5.15-3ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 2364
+Depends: libatk1.0-0 (>= 1.12.4), libc6 (>= 2.15), libglade2-0 (>= 1:2.6.4-2~), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.24.0), libpam0g (>= 0.99.7.1), libpango-1.0-0 (>= 1.14.0), libx11-6, libxext6, libxi6, libxinerama1, libxml2 (>= 2.7.4), libxmu6, libxrandr2 (>= 2:1.2.0), libxt6, libxxf86vm1, xscreensaver-data
+Recommends: libjpeg-progs, perl5, miscfiles | wordlist
+Suggests: xfishtank, xdaliclock, xscreensaver-gl, fortune, www-browser, qcam | streamer, gdm3 | kdm-gdmcompat
+Conflicts: funny-manpages (<< 1.3-1), gnome-control-center (<< 1:2), suidmanager (<< 0.50), xscreensaver-gnome (<< 4.09-2), xscreensaver-nognome (<< 4.09-2)
+Section: x11
+Priority: optional
+Homepage: http://www.jwz.org/xscreensaver/
+Description: Automatic screensaver for X
+ XScreenSaver is a modular screen saver and locker for X11,
+ containing more than 200 screen savers.
+ .
+ This package includes the bare minimum needed to blank and lock
+ your screen. Install this package if you prefer xscreensaver to
+ gnome-screensaver. If you prefer gnome-screensaver, you don't
+ need to install this package.
+ .
+ The graphical display modes are in the xscreensaver-data,
+ xscreensaver-data-extra, xscreensaver-gl and xscreensaver-gl-extra
+ packages.
+Original-Maintainer: Tormod Volden <debian.tormod@gmail.com>
