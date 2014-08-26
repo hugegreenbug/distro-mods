@@ -1,0 +1,14 @@
+Package: lxsession-edit
+Source: lxsession
+Version: 0.4.9.2+git20140410-0ubuntu1.1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 87
+Depends: libc6 (>= 2.14), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.24.0), libgtk2.0-0 (>= 2.12.0), lxsession-data
+Section: x11
+Priority: optional
+Homepage: http://lxde.sf.net
+Description: configure what application start up automaticlly in LXDE
+ LXSession-Edit is a simple session editor GUI for lxsession-lite which
+ follows autostart specs from FreeDesktop.Org
+Original-Maintainer: Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian.org>

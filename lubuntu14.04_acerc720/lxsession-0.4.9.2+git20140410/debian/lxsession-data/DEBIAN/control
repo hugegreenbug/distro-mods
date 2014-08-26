@@ -1,0 +1,13 @@
+Package: lxsession-data
+Source: lxsession
+Version: 0.4.9.2+git20140410-0ubuntu1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 794
+Replaces: lxsession (<< 0.4.7)
+Section: x11
+Priority: optional
+Homepage: http://lxde.sf.net
+Description: Common files for lxsession
+ This package provide common files for lxsession.
+Original-Maintainer: Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian.org>

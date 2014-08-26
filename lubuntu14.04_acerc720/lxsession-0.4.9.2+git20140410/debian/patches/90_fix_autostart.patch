@@ -1,0 +1,184 @@
+From 0343998f9b860d069d0158ba4cbda7845fbe8b26 Mon Sep 17 00:00:00 2001
+From: Julien Lavergne <julien.lavergne@gmail.com>
+Date: Thu, 1 May 2014 19:41:53 +0200
+Subject: [PATCH] Really fix the sysdir reading, by not replacing desktop file
+ already detected in a higher directory in the order Also,
+ make xdg-autostart a binary to also read env from lxsession
+
+---
+ lxsession/Makefile.am         |    2 --
+ lxsession/main.vala           |    2 +-
+ xdg-autostart/Makefile.am     |   28 ++++++++++++++++++++
+ xdg-autostart/main.vala       |   57 +++++++++++++++++++++++++++++++++++++++++
+ xdg-autostart/xdg-autostart.c |   19 +++++++++-----
+ 6 files changed, 99 insertions(+), 10 deletions(-)
+ create mode 100644 xdg-autostart/main.vala
+
+Index: lxsession-0.4.9.2+git20140410/lxsession/Makefile.am
+===================================================================
+--- lxsession-0.4.9.2+git20140410.orig/lxsession/Makefile.am	2014-05-07 23:05:24.370154531 +0200
++++ lxsession-0.4.9.2+git20140410/lxsession/Makefile.am	2014-05-07 23:05:24.358154594 +0200
+@@ -63,7 +63,6 @@
+     ../lxsettings-daemon/xsettings-common.c \
+     ../lxsettings-daemon/xsettings-manager.c \
+     ../lxsettings-daemon/xutils.c \
+-    ../xdg-autostart/xdg-autostart.c \
+     $(buildinclip_SOURCES) \
+     $(buildinpolkit_SOURCES) \
+     $(NULL)
+@@ -74,7 +73,6 @@
+ 	--pkg gio-2.0 \
+ 	--pkg posix \
+ 	--pkg lxsettings-daemon \
+-	--pkg xdg-autostart \
+ 	$(buildinclip_VALAFLAGS) \
+ 	$(buildinpolkit_VALAFLAGS) \
+ 	$(NULL)
+Index: lxsession-0.4.9.2+git20140410/lxsession/main.vala
+===================================================================
+--- lxsession-0.4.9.2+git20140410.orig/lxsession/main.vala	2014-05-07 23:05:24.370154531 +0200
++++ lxsession-0.4.9.2+git20140410/lxsession/main.vala	2014-05-07 23:05:24.358154594 +0200
+@@ -414,7 +414,7 @@
+             else
+             {
+                 /* Autostart applications in system-wide directories */
+-                xdg_autostart(desktop_environnement);
++                lxsession_spawn_command_line_async("lxsession-xdg-autostart");
+             }
+         }
+ 
+Index: lxsession-0.4.9.2+git20140410/xdg-autostart/Makefile.am
+===================================================================
+--- lxsession-0.4.9.2+git20140410.orig/xdg-autostart/Makefile.am	2014-05-07 23:05:24.370154531 +0200
++++ lxsession-0.4.9.2+git20140410/xdg-autostart/Makefile.am	2014-05-07 23:05:24.358154594 +0200
+@@ -1,2 +1,30 @@
++bin_PROGRAMS = lxsession-xdg-autostart
++
++lxsession_xdg_autostart_SOURCES = \
++    xdg-autostart.c \
++    main.vala \
++    $(NULL)
++
++lxsession_xdg_autostart_VALAFLAGS = \
++	--vapidir=$(srcdir)/../vapi \
++	--pkg xdg-autostart \
++	$(NULL)
++
++lxsession_xdg_autostart_CFLAGS = \
++	$(GLIB_CFLAGS) \
++	$(GIO_CFLAGS) \
++	$(ADDITIONAL_FLAGS) \
++	-include config.h -w \
++	$(NULL)
++
++lxsession_xdg_autostart_LDADD = \
++	$(GLIB_LIBS) \
++	$(GIO_LIBS) \
++	$(X11_LIBS) \
++	$(NULL)
++
++CLEAN = \
++    main.c
++
+ EXTRA_DIST = \
+     xdg-autostart.h
+Index: lxsession-0.4.9.2+git20140410/xdg-autostart/main.vala
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ lxsession-0.4.9.2+git20140410/xdg-autostart/main.vala	2014-05-07 23:05:24.358154594 +0200
+@@ -0,0 +1,57 @@
++/* 
++ *      Copyright 2014 Julien Lavergne <gilir@ubuntu.com>
++ *
++ *      This program is free software; you can redistribute it and/or modify
++ *      it under the terms of the GNU General Public License as published by
++ *      the Free Software Foundation; either version 2 of the License, or
++ *      (at your option) any later version.
++ *
++ *      This program is distributed in the hope that it will be useful,
++ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *      GNU General Public License for more details.
++ *
++ *      You should have received a copy of the GNU General Public License
++ *      along with this program; if not, write to the Free Software
++ *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
++ *      MA 02110-1301, USA.
++ */
++namespace Lxsession
++{
++    public class Main: GLib.Object
++    {
++            static string desktop_environnement = null;
++
++            const OptionEntry[] option_entries = {
++            { "desktop_environnement", 'd', 0, OptionArg.STRING, ref desktop_environnement, "Desktop environment to use for desktop files, like LXDE, KDE ... Default to LXDE", "NAME" },
++            { null }
++            };
++
++        public static int main(string[] args)
++        {
++            try
++            {
++                var options_args = new OptionContext("- Lxsession autostart utility");
++                options_args.set_help_enabled(true);
++                options_args.add_main_entries(option_entries, null);
++                options_args.parse(ref args);
++            }
++            catch (OptionError e)
++            {
++                critical ("Option parsing failed: %s\n", e.message);
++                return -1;
++            }
++
++            if (desktop_environnement == null)
++            {
++                xdg_autostart("LXDE");
++                return 0;
++            }
++            else
++            {
++                xdg_autostart(desktop_environnement);
++                return 0;
++            }
++        }
++    }
++}
+Index: lxsession-0.4.9.2+git20140410/xdg-autostart/xdg-autostart.c
+===================================================================
+--- lxsession-0.4.9.2+git20140410.orig/xdg-autostart/xdg-autostart.c	2014-05-07 23:05:24.370154531 +0200
++++ lxsession-0.4.9.2+git20140410/xdg-autostart/xdg-autostart.c	2014-05-07 23:05:24.358154594 +0200
+@@ -281,7 +281,15 @@
+             if(g_str_has_suffix(name, ".desktop"))
+             {
+                 path = g_build_filename( dir_path, name, NULL );
+-                g_hash_table_replace( hash, g_strdup(name), path );
++                printf("%s\n", path);
++                if (g_hash_table_contains( hash, g_strdup(name)))
++                {
++                    /* desktop file already exist in a higher directory, do nothing */
++                }
++                else
++                {
++                    g_hash_table_replace( hash, g_strdup(name), path );
++                }
+             }
+         }
+         g_dir_close( dir );
+@@ -295,13 +303,10 @@
+     const char* const *dir;
+     GHashTable* hash = g_hash_table_new_full( g_str_hash, g_str_equal, g_free, g_free );
+     de_name = de_name_arg;
+-    int i;
+ 
+-    /* get system-wide autostart files */
+-    for(i = sizeof(dirs); i = 0 ; i--)
+-    {
+-        get_autostart_files_in_dir( hash, de_name, *dirs[i] );
+-    }
++     /* get system-wide autostart files */
++	for( dir = dirs; *dir; ++dir )
++		get_autostart_files_in_dir( hash, de_name, *dir );
+ 
+     /* get user-specific autostart files */
+     get_autostart_files_in_dir( hash, de_name, g_get_user_config_dir() );

@@ -1,0 +1,383 @@
+lxsession (0.4.9.2+git20140410-0ubuntu1.1) trusty-proposed; urgency=medium
+
+  * debian/patches:
+   - 90_fix_autostart.patch: Fix autostarting applications from system
+     directories (LP: #1308348).
+  * debian/lxsession.install:
+   - Install lxsession-xdg-autostart new excecutable.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 07 Jun 2014 16:31:46 +0200
+
+lxsession (0.4.9.2+git20140410-0ubuntu1) trusty; urgency=medium
+
+  * New upstream snapshot, only bug fixes:
+   - Fix screenshot call (LP: #1286685).
+   - Fix reading system-wide config directories (LP: #1281323).
+   - Remove some debug and add missing string to translation.
+  * debian/control:
+   - Add laptop-detect as a depends to be sure we have laptop-mode working by
+     default.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 10 Apr 2014 22:57:10 +0200
+
+lxsession (0.4.9.2+git20140317-0ubuntu1) trusty; urgency=medium
+
+  * New upstream snapshot, only bug fixes:
+   - Fix some help texts.
+   - Re-enable buildin support for polkit (LP: #1292868)
+   - Fix exporting environment variables twice (LP: #1278062)
+  * debian/patches/100_disable_Werror.patch:
+   - Refresh.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 17 Mar 2014 22:01:25 +0100
+
+lxsession (0.4.9.2+git20140313-0ubuntu1) trusty; urgency=medium
+
+  * New upstream snapshot, only bug fixes:
+   - Fix the size of lxsession-default-apps window (LP: #1282794).
+   - Fix some inactive help buttons (LP: #1284497).
+   - Fix setting auto started applications (LP: #1288115).
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Wed, 12 Mar 2014 23:47:24 +0100
+
+lxsession (0.4.9.2+git20140216-0ubuntu1) trusty; urgency=low
+
+  * New upstream snapshot.
+  * debian/patches:
+   - Remove 9* patches, all merged upstream.
+   - Refresh 100_disable_Werror.patch
+  * debian/lxsession.install:
+   - Add new files.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 16 Feb 2014 22:15:44 +0100
+
+lxsession (0.4.9.2-0ubuntu7) trusty; urgency=medium
+
+  * Disable -Werror in configure.ac to fix FTBFS while autoreconfing.
+
+ -- Logan Rosen <logan@ubuntu.com>  Wed, 01 Jan 2014 01:55:26 -0500
+
+lxsession (0.4.9.2-0ubuntu6) saucy; urgency=low
+
+  * Add some upstream patches in debian/patches:
+   - 93_guess_default.patch: guess default settings when they are not specified
+   - 94_fix_qt_plugin_export.patch: Fix export of Qt plugin environment
+     variable.
+   - 95_launch_working_directory.patch: Launch applications in the current
+     directory when necessary.
+   - 96_disable_autostart_default.patch: By default, keep the previous behavior
+     for auto started applications.
+   - 97_kill_default_apps.patch: Properly exit lxsession-default-apps on close.
+   - 98_double_launch_polkit.patch: Avoid launching twice the polkit agent when
+     using the build-in support.
+   - 99_lxsession_edit_in_default_apps.patch: Use functionalities of
+     lxsession-edit inside lxsession-default-apps.
+  * debian/control:
+   - Provides policykit-1-gnome since both lxsession and lxpolkit can provide
+     the same functionalities.
+   - lxsession-default-apps replaces now lxsession-edit.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 19 Sep 2013 19:44:14 +0200
+
+lxsession (0.4.9.2-0ubuntu5) saucy; urgency=low
+
+  * debian/*.install:
+   - Move .ui of lxpolkit to lxsession-data, since it can be used without
+     lxpolkit installed.
+  * debian/control:
+   - Update Breaks for the move of the lxpolkit .ui file.
+  * debian/patches:
+   - 92_enable_conffiles.patch: From upstream, enable conffiles support.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 30 Jun 2013 23:59:18 +0200
+
+lxsession (0.4.9.2-0ubuntu4) saucy; urgency=low
+
+  * debian/patches
+   - 90_logout_migration.patch: From upstream, fix shutdown and reboot in
+     lxsession-logout (LP: #1190170).
+   - 91_link_glib.patch: From upstream, add missing linker options.
+  * debian/control & debian/rules:
+   - Add dh-autoreconf for 91_link_glib.patch.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Tue, 25 Jun 2013 22:34:06 +0200
+
+lxsession (0.4.9.2-0ubuntu3) saucy; urgency=low
+
+  * debian/lxsession.install:
+   - Only install lxsession-default and lxsession-default-terminal.
+  * debian/control:
+   - Move consolekit depends to lxsession-logout.
+   - Add a depends on lxsession-logout for lxsession.
+   - Add a breaks on lxsession-default-apps to handle migration with lxsession.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 13 Jun 2013 00:17:43 +0200
+
+lxsession (0.4.9.2-0ubuntu2) saucy; urgency=low
+
+  * Build with default valac
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 08 Jun 2013 23:44:23 -0400
+
+lxsession (0.4.9.2-0ubuntu1) saucy; urgency=low
+
+  * New upstream release.
+  * debian/patches:
+   - 90_logout_dbus_timeout.patch: Remove, merged upstream.
+  * debian/control:
+   - Add a new lxsession-logout binary.
+   - Add a new lxsession-default-apps binary.
+   - Bump debhelper depends to >= 9.
+  * debian/compat:
+   - Bump to 9.
+  * debian/rules:
+   - Re-enable tests.
+  * debian/lxsession.install:
+   - Adjust with new files.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Fri, 07 Jun 2013 23:54:39 +0200
+
+lxsession (0.4.9.2~git20130310-0ubuntu2) saucy; urgency=low
+
+  * Add missing consolekit dependency.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 01 May 2013 12:12:18 -0700
+
+lxsession (0.4.9.2~git20130310-0ubuntu1) raring; urgency=low
+
+  * New upstream snapshot (git e352998aa8), including only bug fixes.
+  * debian/patches:
+   - 90_logout_dbus_timeout.patch: From upstream, increase the dbus timeout.
+     (LP: #1132693).
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 13 Apr 2013 08:33:00 +0200
+
+lxsession (0.4.9.2~git20121227-0ubuntu1) raring; urgency=low
+
+  * New upstream snapshot.
+   - Use lighdm dbus method to switch user. (LP: #953554)
+   - lxsession segfault if desktop environment not specified (LP: #1091819)
+   - Add a lock screen option for Lubuntu (LP: #612332) 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Thu, 07 Mar 2013 16:42:43 +0100
+
+lxsession (0.4.9.1~git20120828-0ubuntu1) quantal; urgency=low
+
+  * New upstream snapshot, including only bug fixes and translation updates.
+   - Fix monitoring of the conf file (LP: #1037356)
+   - Fix usage of ConsoleKit in dbus interface (LP: #1041283)
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 09 Sep 2012 15:55:00 +0200
+
+lxsession (0.4.9.1~git20120708-0ubuntu1) quantal; urgency=low
+
+  * New upstream snapshot.
+   - Implement Dbus method for lxsession-logout command (LP: #626286)
+  * debian/control:
+   - Build-depends on libpolkit-agent-1-dev, libgee-dev, valac-0.14 | valac.
+   - Add new binaries for lxsession-edit, lxpolkit and lxsession-data.
+  * debian/lxsession.examples:
+   - Update location of the examples files.
+  * debian/*.install:
+   - Update with the new binaries, and new installed files.
+  * debian/rules:
+   - Add --enable-buildin-clipboard --enable-buildin-polkit flags.
+   - Use dh_install --fail-missing.
+   - Clean also manpages generated.
+  * debian/copyright
+   - Update with the new files.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 08 Jul 2012 23:48:45 +0200
+
+lxsession (0.4.6.1+git20120214-0ubuntu1) precise; urgency=low
+
+  * New upstream snapshot :
+   - Fix double launch at startup (LP: #873756)
+   - Add a clipboard manager (LP: #926893)
+  * debian/patches:
+   - 02_gdm3.patch : Remove, merged upstream.
+   - 04_fix-ltsp-shutdown-reboot.patch: Remove, merged upstream.
+   - 06_lX11_liking.patch: Remove, merged upstream.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Tue, 14 Feb 2012 00:49:18 +0100
+
+lxsession (0.4.6.1-1) unstable; urgency=low
+
+  * Removing useless override_dh_auto_clean in rules file.
+  * Merging upstream version 0.4.6.1:
+    - Fix crash on start
+  * Drop 10_fix_start.patch: included in upstream.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Fri, 29 Jul 2011 21:17:49 +0800
+
+lxsession (0.4.6-1) unstable; urgency=low
+
+  [ Julien Lavergne ]
+  * debian/dirs: Remove.
+  * debian/control: Add a debug package.
+  * debian/lxsession.install: Add.
+  * debian/rules: Add dh_strip for debug package.
+  * debian/patches/06_lX11_liking.patch: Add -lX11 to fix FTBFS
+    with gold. (Closes: #555576)
+
+  [ Andrew Lee (李健秋) ]
+  * Use debhelper 8
+  * Sorting  build-depends.
+  * Wapping build-depends.
+  * Removing useless whitespaces at EOL and EOF.
+  * Updating Vcs-Browser and Vcs-Git tags.
+  * Sorting depends.
+  * Sorting suggests, provides, replaces and conflicts.
+  * Removing empty NEWS in debian/docs.
+  * Added debian/source/options file.
+  * Compacting watch file.
+  * Merging upstream version 0.4.6:
+    - Add support for not launching autostart programs (patch from ID 3103281)
+    - Add some improvement to build system, inspired by patch from ID: 3005712
+    - Add information of man pages support
+    - Add additional flags for maintainer mode
+    - Link directly to X11
+    - Add link to x11 for lxsession-logout
+    - Add option to compile with GTK3
+    - Use helper shell script to lock the screen
+  * Removed patch 03_screenlock.patch: Included in upstream.
+  * refresh 04_fix-ltsp-shutdown-reboot.patch.
+  * refresh 02_gdm3.patch.
+  * refresh 06_lX11_liking.patch.
+  * Sorting debian/patches/series.
+  * Removing 01_upower.patch: Included in upstream.
+  * Disabling dh_auto_test: Incompelete in po/.
+  * Apply 10_fix_start.patch from Julien Lavergne <gilir@ubuntu.com>.
+  * Sorting debian/patches/series.
+  * refresh 04_fix-ltsp-shutdown-reboot.patch.
+  * Set priority to extra for debuging package.
+  * Fix description synopsis starts with article for lxsession-dbg.
+  * Install lintian-overrides for lxlock: this should only be execute
+    by lxsession-logout.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Thu, 28 Jul 2011 03:27:37 +0800
+
+lxsession (0.4.5-1) unstable; urgency=low
+
+  * Imported Upstream version 0.4.5
+  * Apply 04_fix-ltsp-shutdown-reboot.patch
+    Thanks Vagrant Cascadian <vagrant@freegeek.org> (Closes:#596383)
+  * Bumped Standards-Version to 3.9.2 (no changes)
+  * Update package description
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Thu, 14 Jul 2011 00:07:42 +0800
+
+lxsession (0.4.4-3) unstable; urgency=high
+
+  * Applied patch from Novell bugtracker which fixed CVE-2010-2532
+    (Closes:#591409)
+  * Bumped Standard-version to 3.9.1
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Thu, 05 Aug 2010 16:14:10 -0400
+
+lxsession (0.4.4-2) unstable; urgency=low
+
+  HAL-less LXDE!
+  * Backport upower patch from upstream.
+  * Support switch user with gdm3.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sat, 24 Jul 2010 11:01:31 +0800
+
+lxsession (0.4.4-1) unstable; urgency=low
+
+  * New upstream release
+    - A LTSP support release!
+  * debian/control:
+    - Update descriptions
+    - Added conflicts on lxde-common (<= 0.4.2) to avoid problem mentioned
+      at #575961
+  * Document #575961 in NEWS.Debian as well.
+  * Using source format '3.0 (quilt)'
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Mon, 12 Apr 2010 03:18:38 +0800
+
+lxsession (0.4.3-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixed the regression on position of the Logout button
+    - Improvement on widget structure
+    - Ability to have environment variables in the autostart file
+  * Removed patch that included in upstream.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Fri, 19 Mar 2010 11:13:23 +0700
+
+lxsession (0.4.2-1) unstable; urgency=low
+
+  [ Andrew Lee (李健秋) ]
+  * New upstream release (Closes:#521500)
+    - Convert to using only one toplevel window to solve Compiz drawing
+      over the controls
+    - Add support for shutdown/reboot via ConsoleKit
+    - Query HAL for capabilities rather than assuming they are present 
+      if HAL is
+    - Latent (untested) support for suspend/hibernate via DeviceKit/Power
+    - Remove GDM communication mechanism that was discontinued in GDM 2.22
+    - Fix faulty defaulting of XDG_CURRENT_DESKTOP
+    - Translation updates
+  * Added Vcs-Git and Vcs-Browser tags
+  * Enable team maintenance:
+    - mailing list on alioth:
+        Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian.org>
+    - git repo on collab-maint:
+        http://git.debian.org/?p=collab-maint/lxsession.git;a=summary
+  * Bumped Standard-version to 3.8.4
+
+  [ Nikolas Poniros ]
+  * patch to have the shutdown button as first option in logout dialog 
+
+ -- Nikolas Poniros <edhunter@sidux.com>  Thu, 18 Mar 2010 21:32:56 +0100
+
+lxsession (0.4.1-2) unstable; urgency=low
+
+  * Adjust priority to extra to match overrides
+  * Drop lxsession-lite
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Thu, 14 Jan 2010 21:20:23 +0800
+
+lxsession (0.4.1-1) unstable; urgency=low
+
+  * New upstream release
+    - Support recognizing current DE with $XDG_CURRENT_DESKTOP
+    - Translation update 
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Fri, 18 Dec 2009 15:59:37 +0800
+
+lxsession (0.4.0+svn20090905-1) unstable; urgency=low
+
+  * Merged the update from Julien Lavergne
+    - debian/copyright: Update copyright and licence.
+    - Update description.
+  * Bumped Standards-Version to 3.8.3
+  * lxsession is stripped down without session restore function. Lower its 
+    alternative priority for x-session-manager. (Closes:#554247, #534563)
+  * Added desktop.conf.example
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Thu, 03 Dec 2009 13:46:00 +0800
+
+lxsession (0.4+svn20090814-1) unstable; urgency=low
+
+  * New upstream release
+    - Built-in settings daemon
+    - Use Docbook-XML instead of SGML manpages
+    - Updated translations
+  * debian/control:
+    - Build-depends on docbook-xml, docbook-xsl, xsltproc
+    - Provides lxde-settings-daemon
+    - Replaces lxde-settings-daemon
+    - Conflicts lxde-settings-daemon
+  * debian/rules:
+    - Added configure options --enable-man, --sysconfdir=/etc
+  * Bumped Standard-version to 3.8.2
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Fri, 14 Aug 2009 06:06:55 +0800
+
+lxsession (0.3.8+svn20090521-1) unstable; urgency=low
+
+  * Initial release (Closes: #468823)
+
+ -- Andrew Lee <andrew@linux.org.tw>  Wed, 27 May 2009 01:07:28 +0800

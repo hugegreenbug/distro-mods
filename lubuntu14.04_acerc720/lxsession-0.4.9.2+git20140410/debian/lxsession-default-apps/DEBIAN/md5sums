@@ -1,0 +1,6 @@
+c99736c9ab153b4d2af28620ee382234  usr/bin/lxsession-default-apps
+f546870529d2fdd616dd0f330c54a998  usr/share/applications/lxsession-default-apps.desktop
+439668d01b00b7d46b64a8a5b1a06894  usr/share/doc/lxsession-default-apps/NEWS.Debian.gz
+d28ef56b6809eeb6598787d345fdc18a  usr/share/doc/lxsession-default-apps/changelog.Debian.gz
+b9a0433a9ec9b30a15d9604b5cc9d040  usr/share/doc/lxsession-default-apps/copyright
+d9f1185c065f8b4eb908e4537b20723a  usr/share/lxsession/ui/lxsession-default-apps.ui

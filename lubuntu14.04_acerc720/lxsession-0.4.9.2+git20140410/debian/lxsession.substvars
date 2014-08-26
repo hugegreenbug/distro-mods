@@ -1,0 +1,2 @@
+shlibs:Depends=libc6 (>= 2.14), libdbus-glib-1-2 (>= 0.78), libglib2.0-0 (>= 2.37.3), libgtk2.0-0 (>= 2.24.0), libpolkit-agent-1-0 (>= 0.94), libpolkit-gobject-1-0 (>= 0.94), libx11-6
+misc:Depends=

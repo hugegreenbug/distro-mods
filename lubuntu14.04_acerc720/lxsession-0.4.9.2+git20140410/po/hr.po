@@ -1,0 +1,402 @@
+# zvacet <ikoli@yahoo.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession-lite_hr\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-13 23:14+0100\n"
+"PO-Revision-Date: 2013-12-24 06:03+0000\n"
+"Last-Translator: Ivica <ikoli@yahoo.com>\n"
+"Language-Team: <asjlob AT vip.hr>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1387865027.0\n"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "Custom message to show on the dialog"
+msgstr "Prikaži prilagođenu poruku u dijalogu"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "message"
+msgstr "poruka"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "Banner to show on the dialog"
+msgstr "Prikaži transparent u dijalogu"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "image file"
+msgstr "slikovna datoteka"
+
+#: ../lxsession-logout/lxsession-logout.c:50
+msgid "Position of the banner"
+msgstr "Pozicija transparenta"
+
+#: ../lxsession-logout/lxsession-logout.c:460
+#, c-format
+msgid "Error: %s\n"
+msgstr "Pogreška %s\n"
+
+#: ../lxsession-logout/lxsession-logout.c:691
+#, c-format
+msgid "<b><big>Logout %s %s session ?</big></b>"
+msgstr "<b><big>Odjavi %s %s sesiju ?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:699
+msgid "Sh_utdown"
+msgstr "Ug_asi"
+
+#: ../lxsession-logout/lxsession-logout.c:710
+msgid "_Reboot"
+msgstr "_Pokreni ponovo"
+
+#: ../lxsession-logout/lxsession-logout.c:721
+msgid "_Suspend"
+msgstr "_Suspendiranje"
+
+#: ../lxsession-logout/lxsession-logout.c:732
+msgid "_Hibernate"
+msgstr "_Hibernacija"
+
+#: ../lxsession-logout/lxsession-logout.c:743
+msgid "S_witch User"
+msgstr "P_romijeni Korisnika"
+
+#: ../lxsession-logout/lxsession-logout.c:754
+msgid "L_ock Screen"
+msgstr "Z_akjlučaj zaslon"
+
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:763
+msgid "_Logout"
+msgstr "_Odjavi se"
+
+#: ../lxsession-edit/lxsession-edit-common.c:373
+msgid "Enabled"
+msgstr "Omogućeno"
+
+#: ../lxsession-edit/lxsession-edit-common.c:378
+msgid "Application"
+msgstr "Program"
+
+#: ../lxsession-edit/lxsession-edit-common.c:386
+msgid "Comment"
+msgstr "Komentar"
+
+#: ../lxpolkit/lxpolkit.c:43
+msgid "Error"
+msgstr "Greška"
+
+#: ../lxpolkit/lxpolkit.c:46
+msgid "Information"
+msgstr "Informacije"
+
+#: ../lxpolkit/lxpolkit-listener.c:106
+msgid "Password: "
+msgstr "Lozinka: "
+
+#: ../lxpolkit/lxpolkit-listener.c:251
+#, c-format
+msgid "Group: %s"
+msgstr "Grupa: %s"
+
+#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Postavke sesije radne površine"
+
+#: ../data/ui/lxsession-edit.ui.h:2
+msgid "Applications automatically started after entering desktop:"
+msgstr ""
+
+#: ../data/ui/lxsession-edit.ui.h:3
+msgid "Automatically Started Applications"
+msgstr "Automatski pokrenuti programi"
+
+#: ../data/ui/lxsession-edit.ui.h:4
+msgid "Window Manager:"
+msgstr "Upravitelj prozora:"
+
+#: ../data/ui/lxsession-edit.ui.h:5
+msgid ""
+"Command line used to launch window manager\n"
+"(The default window manager command for LXDE should be openbox-lxde)"
+msgstr ""
+"Naredbeni redak korišten za pokretanje upravitelja prozora\n"
+"(Zadana naredba upravitelja prozora za LXDE trebala bi biti openbox-lxde)"
+
+#: ../data/ui/lxsession-edit.ui.h:7
+msgid ""
+"<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you "
+"are doing.\n"
+"\n"
+"<b>NOTE:</b> This setting will take effect on next login."
+msgstr ""
+"<b>Upozorenje:</b> Ne<b>MOJ</b> ovo dirati ukoliko doista ne znaš što radiš.\n"
+"\n"
+"<b>OBAVIJEST:</b> Ove postavke će postati aktivne nakon iduće prijave."
+
+#: ../data/ui/lxsession-edit.ui.h:10
+msgid "Advanced Options"
+msgstr "Napredne opcije"
+
+#: ../data/ui/lxpolkit.ui.h:1
+msgid "Authentication"
+msgstr "Autentifikacija"
+
+#: ../data/ui/lxpolkit.ui.h:2
+msgid "Identity:"
+msgstr "Identitet:"
+
+#: ../data/ui/lxsession-default-apps.ui.h:1
+msgid "Command"
+msgstr "Naredba"
+
+#: ../data/ui/lxsession-default-apps.ui.h:2
+msgid "Session"
+msgstr "Sesija"
+
+#: ../data/ui/lxsession-default-apps.ui.h:3
+msgid "Apply"
+msgstr "Primijeni"
+
+#: ../data/ui/lxsession-default-apps.ui.h:4
+msgid "Reload"
+msgstr "Ponovo učitaj"
+
+#: ../data/ui/lxsession-default-apps.ui.h:5
+msgid "<b>Panel</b>"
+msgstr "<b>Ploča</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:6
+msgid "Extras"
+msgstr "Dodaci"
+
+#: ../data/ui/lxsession-default-apps.ui.h:7
+msgid "<b>Window Manager</b>"
+msgstr "<b>Upravitelj prozora</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:8
+msgid "<b>File Manager</b>"
+msgstr "<b>Upravitelj datoteka</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:9
+msgid "<b>Screensaver</b>"
+msgstr "<b>Čuvar zaslona</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:10
+msgid "<b>Polkit agent</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:11
+msgid "<b>Dock</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:12
+msgid "Autostart"
+msgstr "Samopokretanje"
+
+#: ../data/ui/lxsession-default-apps.ui.h:13
+msgid "<b>Composite Manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:14
+msgid "Wallpaper"
+msgstr "Pozadinska slika"
+
+#: ../data/ui/lxsession-default-apps.ui.h:15
+msgid "<b>Desktop</b>"
+msgstr "<b>Radna površina</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:16
+msgid "<b>Power Manager</b>"
+msgstr "<b>Upravitelj energijom</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:17
+msgid "<b>Network GUI</b>"
+msgstr "<b>Grafičko sučelje mreže</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:18
+msgid "<b>Communication 1</b>"
+msgstr "<b>Komunikacija 1</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:19
+msgid "<b>Communication 2</b>"
+msgstr "<b>Komunikacija 2</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:20
+msgid "<b>Widget 1</b>"
+msgstr "<b>Widget 1</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:21
+msgid "Running applications"
+msgstr "Pokrenuti programi"
+
+#: ../data/ui/lxsession-default-apps.ui.h:22
+msgid "<b>Audio manager</b>"
+msgstr "<b>Audio upravitelj</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:23
+msgid "Image"
+msgstr "Slika"
+
+#: ../data/ui/lxsession-default-apps.ui.h:24
+msgid "Layout"
+msgstr "Raspored"
+
+#: ../data/ui/lxsession-default-apps.ui.h:25
+msgid "<b>Quit Manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:26
+msgid "<b>Workspace manager</b>"
+msgstr "<b>Upravitelj radnim prostorom</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:27
+msgid "<b>Launcher manager</b>"
+msgstr "<b>Upravitelj pokretača</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:28
+msgid "<b>Terminal manager</b>"
+msgstr "<b>Upravitelj terminala</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:29
+msgid "<b>Screenshot manager</b>"
+msgstr "<b>Upravitelj slika zaslona</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:30
+msgid "<b>Upgrade manager</b>"
+msgstr "<b>Upravitelj nadogradnji</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:31
+msgid "<b>Lock screen manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:32
+msgid "Launching applications"
+msgstr "Pokretanje programa"
+
+#: ../data/ui/lxsession-default-apps.ui.h:33
+msgid "Disable autostarted applications ?"
+msgstr "Onemogućiti samopokrenute programe?"
+
+#: ../data/ui/lxsession-default-apps.ui.h:34
+msgid "<b>Settings</b>"
+msgstr "<b>Postavke</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:35
+msgid "<b>Manual autostarted applications</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:36
+msgid "<b>Known Applications </b>"
+msgstr "<b>Poznati programi </b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:37
+msgid "<b>Clipboard manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:38
+msgid "Mode"
+msgstr "Način rada"
+
+#: ../data/ui/lxsession-default-apps.ui.h:39
+msgid "Model"
+msgstr "Model"
+
+#: ../data/ui/lxsession-default-apps.ui.h:40
+msgid "Variant"
+msgstr "Varijanta"
+
+#: ../data/ui/lxsession-default-apps.ui.h:41
+msgid "Options"
+msgstr "Opcije"
+
+#: ../data/ui/lxsession-default-apps.ui.h:42
+msgid "<b>Keymap</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:43
+msgid "<b>XRandr</b>"
+msgstr "<b>XRandr</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:44
+msgid "Keyring"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:45
+msgid "<b>Security</b>"
+msgstr "<b>Sigurnost</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:46
+msgid "Type"
+msgstr "Vrsta"
+
+#: ../data/ui/lxsession-default-apps.ui.h:47
+msgid "<b>a11y</b>"
+msgstr "<b>a11y</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:48
+msgid "Activate updates"
+msgstr "Aktivirajte ažuriranja"
+
+#: ../data/ui/lxsession-default-apps.ui.h:49
+msgid "<b>Updates</b>"
+msgstr "<b>Dopune</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:50
+msgid "Http"
+msgstr "Http"
+
+#: ../data/ui/lxsession-default-apps.ui.h:51
+msgid "<b>Proxy</b>"
+msgstr "<b>Proxy</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:52
+msgid "Laptop mode"
+msgstr "Laptop način rada"
+
+#: ../data/ui/lxsession-default-apps.ui.h:53
+msgid "<b>General settings</b>"
+msgstr "<b>Opće postavke</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:54
+msgid "<b>Dbus</b>"
+msgstr "<b>Dbus</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:55
+msgid "Menu prefix"
+msgstr "Prefiks izbornika"
+
+#: ../data/ui/lxsession-default-apps.ui.h:56
+msgid "<b>Environment</b>"
+msgstr "<b>Okruženje</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:57
+msgid "Settings"
+msgstr "Postavke"
+
+#: ../data/lxsession-edit.desktop.in.h:2
+msgid "Manage applications loaded in desktop session"
+msgstr "Upravljaj programima koji su učitani u sesiji radne površine"
+
+#: ../data/lxsession-default-apps.desktop.in.h:1
+msgid "Default applications for LXSession"
+msgstr "Zadani programi za LXSesiju"
+
+#: ../data/lxsession-default-apps.desktop.in.h:2
+msgid "Change the default applications on LXDE"
+msgstr "Promjenite zadane programe u LXDE"
+
+#~ msgid "LXSession is not running."
+#~ msgstr "LXSession nije pokrenut."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>Odjavi %s sesiju?</big></b>"
+
+#~ msgid "Logout"
+#~ msgstr "Odjava"
