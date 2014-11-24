@@ -1,3 +1,5 @@
 The kernel package contains a vanilla kernel with a large patch from Chris Wilson (ickle) for i915 graphics fixes and the aufs module. More info on the graphics hang fixes can be found here: https://bugs.freedesktop.org/show_bug.cgi?id=83677#c130 .
 
 The patch is a backport of Chris Wilson's branch against a vanilla 3.17.4 kernel.
+
+The patch currently requires TearFree to be enabled for the i915 driver. Follow this: https://wiki.archlinux.org/index.php/Intel_graphics#Tear-free_video to enable TearFree
