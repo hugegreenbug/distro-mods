@@ -1,0 +1,13 @@
+diff -urN unity-7.3.1+14.10.20141016/lockscreen/LockScreenSettings.cpp unity-7.3.1+14.10.20141016.new/lockscreen/LockScreenSettings.cpp
+--- unity-7.3.1+14.10.20141016/lockscreen/LockScreenSettings.cpp	2014-10-16 11:09:43.000000000 -0400
++++ unity-7.3.1+14.10.20141016.new/lockscreen/LockScreenSettings.cpp	2014-11-25 16:54:21.731612271 -0500
+@@ -94,9 +94,7 @@
+ 
+   void UpdateA11YSettings()
+   {
+-    bool legacy = false;
+-    legacy = g_settings_get_boolean(a11y_settings_, USE_SCREEN_READER.c_str()) != FALSE;
+-    legacy = legacy || g_settings_get_boolean(a11y_settings_, USE_OSK.c_str()) != FALSE;
++    bool legacy = true;
+     settings_instance->use_legacy = legacy;
+   }
