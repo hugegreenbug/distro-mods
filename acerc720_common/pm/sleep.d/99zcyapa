@@ -22,33 +22,39 @@ getXuser() {
         fi
 }
 
-case "${1}" in
-        hibernate)
+for x in /tmp/.X11-unix/*; do
+    displaynum=`echo $x | sed s#/tmp/.X11-unix/X##`
+    getXuser;
+    if [ x"$XAUTHORITY" != x"" ]; then
+	case "${1}" in
+	    hibernate)
 		/sbin/rmmod cyapa
                 ;;
-	resume|thaw)
+	    resume|thaw)
          	COUNTER=0
          	while [  $COUNTER -lt 10 ]; do
-                        date >>/tmp/99_cyapa
-                        /sbin/modprobe cyapa
+                    date >>/tmp/99_cyapa
+                    /sbin/modprobe cyapa
+		    sleep 1
+		    dmesg | grep cyapa | tail -1 | grep "\(error\|fail\)" >/dev/null
+		    RES=$?
+		    echo "res=$RES"
+		    if [ ${RES} -ne 1 ] ; then
+			/sbin/rmmod cyapa
 			sleep 1
-			dmesg | grep cyapa | tail -1 | grep "\(error\|fail\)" >/dev/null
-			RES=$?
-			echo "res=$RES"
-			if [ ${RES} -ne 1 ] ; then
-				/sbin/rmmod cyapa
-				sleep 1
-			else
-				#done
-				COUNTER=11
-			fi
-
-             		COUNTER=`expr $COUNTER + 1`
+		    else
+			#done
+			COUNTER=11
+		    fi
+		    
+             	    COUNTER=`expr $COUNTER + 1`
          	done
-                getXuser;
 		if [ -n $XSESSIONRC ]; then
-			/bin/sh "$XESSIONRC"
+		    /bin/sh "$XESSIONRC"
 		fi
 		;;
-esac
+	esac
+    fi
+done
+
 exit 0
