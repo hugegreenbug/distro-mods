@@ -1,9 +1,9 @@
 #!/bin/bash -x
 # File: "/etc/pm/sleep.d/99_cyapa".
-#!/bin/sh
+
+
 # Taken from: http://askubuntu.com/questions/20585/how-to-lock-xscreensaver-on-suspend
 # Lock xscreensaver on resume from a suspend.
-
 # getXuser gets the X user belonging to the display in $displaynum.
 # If you want the foreground X user, use getXconsole!
 getXuser() {
@@ -22,38 +22,36 @@ getXuser() {
         fi
 }
 
+case "${1}" in
+    hibernate)
+	/sbin/rmmod cyapa
+        ;;
+    resume|thaw)
+        COUNTER=0
+        while [  $COUNTER -lt 10 ]; do
+            date >>/tmp/99_cyapa
+            /sbin/modprobe cyapa
+	    sleep 1
+	    dmesg | grep cyapa | tail -1 | grep "\(error\|fail\)" >/dev/null
+	    RES=$?
+	    if [ ${RES} -ne 1 ] ; then
+		/sbin/rmmod cyapa
+		sleep 1
+	    else
+		#done
+		COUNTER=11
+	    fi
+	    
+            COUNTER=`expr $COUNTER + 1`
+        done
+        ;;
+esac
+
 for x in /tmp/.X11-unix/*; do
     displaynum=`echo $x | sed s#/tmp/.X11-unix/X##`
     getXuser;
-    if [ x"$XAUTHORITY" != x"" ]; then
-	case "${1}" in
-	    hibernate)
-		/sbin/rmmod cyapa
-                ;;
-	    resume|thaw)
-         	COUNTER=0
-         	while [  $COUNTER -lt 10 ]; do
-                    date >>/tmp/99_cyapa
-                    /sbin/modprobe cyapa
-		    sleep 1
-		    dmesg | grep cyapa | tail -1 | grep "\(error\|fail\)" >/dev/null
-		    RES=$?
-		    echo "res=$RES"
-		    if [ ${RES} -ne 1 ] ; then
-			/sbin/rmmod cyapa
-			sleep 1
-		    else
-			#done
-			COUNTER=11
-		    fi
-		    
-             	    COUNTER=`expr $COUNTER + 1`
-         	done
-		if [ -n $XSESSIONRC ]; then
-		    /bin/sh "$XESSIONRC"
-		fi
-		;;
-	esac
+    if [ -n $XSESSIONRC ]; then
+	/bin/sh "$XSESSIONRC"
     fi
 done
 
