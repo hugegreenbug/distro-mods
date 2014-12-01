@@ -1,5 +1,0 @@
-#
-# This script should execute only by lxsession-logout
-#
-lxsession: binary-without-manpage usr/bin/lxlock
-
