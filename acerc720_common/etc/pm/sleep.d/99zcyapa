@@ -47,12 +47,4 @@ case "${1}" in
         ;;
 esac
 
-for x in /tmp/.X11-unix/*; do
-    displaynum=`echo $x | sed s#/tmp/.X11-unix/X##`
-    getXuser;
-    if [ -n $XSESSIONRC ]; then
-	/bin/sh "$XSESSIONRC"
-    fi
-done
-
 exit 0
