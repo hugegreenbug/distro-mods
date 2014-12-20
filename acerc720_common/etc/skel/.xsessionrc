@@ -1,0 +1,3 @@
+xinput --set-int-prop 12 "Tap Drag Enable" 8 1
+xinput --set-float-prop 12 "Tap Drag Delay" 0.060000
+xinput --set-int-prop 12 "Pointer Sensitivity" 32 4
