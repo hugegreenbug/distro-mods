@@ -2,4 +2,3 @@ ID=`xinput | grep cyapa | cut -f 2 | sed -e 's/id=//'`
 xinput --set-int-prop $ID "Tap Drag Enable" 8 1
 xinput --set-float-prop $ID "Tap Drag Delay" 0.060000
 xinput --set-int-prop $ID "Pointer Sensitivity" 32 4
-xinput --set-float-prop $ID "Two Finger Pressure Diff Thresh" 80.0
