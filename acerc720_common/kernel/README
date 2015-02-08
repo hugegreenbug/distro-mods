@@ -1,1 +1,0 @@
-The kernel package contains a vanilla 3.18 kernel with two small patches from Chris Wilson to fix graphics hangs for haswell chipsets : https://bugs.freedesktop.org/show_bug.cgi?id=83677#c130 .
