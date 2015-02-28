@@ -1,0 +1,37 @@
+diff -ruN xfce4-power-manager-1.4.1/src/xfpm-power.c xfce4-power-manager-1.4.1.reallygood//src/xfpm-power.c
+--- xfce4-power-manager-1.4.1/src/xfpm-power.c	2014-08-29 10:07:22.000000000 -0600
++++ xfce4-power-manager-1.4.1.reallygood//src/xfpm-power.c	2015-02-28 15:38:39.616337231 -0700
+@@ -339,10 +339,6 @@
+     }
+ 
+     g_signal_emit (G_OBJECT (power), signals [SLEEPING], 0);
+-    /* Get the current brightness level so we can use it after we suspend */
+-    brightness = xfpm_brightness_new();
+-    xfpm_brightness_setup (brightness);
+-    xfpm_brightness_get_level (brightness, &brightness_level);
+ 
+ #ifdef WITH_NETWORK_MANAGER
+     g_object_get (G_OBJECT (power->priv->conf),
+@@ -428,8 +424,8 @@
+     g_signal_emit (G_OBJECT (power), signals [WAKING_UP], 0);
+     /* Check/update any changes while we slept */
+     xfpm_power_get_properties (power);
+-    /* Restore the brightness level from before we suspended */
+-    xfpm_brightness_set_level (brightness, brightness_level);
++    /* Turn on the monitor after we slept */
++    xfpm_dpms_force_level (power->priv->dpms, DPMSModeOn);
+ 
+ #ifdef WITH_NETWORK_MANAGER
+     if ( network_manager_sleep )
+diff -ruN xfce4-power-manager-1.4.1/src/xfpm-xfconf.c xfce4-power-manager-1.4.1.reallygood//src/xfpm-xfconf.c
+--- xfce4-power-manager-1.4.1/src/xfpm-xfconf.c	2014-09-08 01:52:28.000000000 -0600
++++ xfce4-power-manager-1.4.1.reallygood//src/xfpm-xfconf.c	2015-02-28 12:49:57.650285985 -0700
+@@ -492,7 +492,7 @@
+                                                         NULL, NULL,
+                                                         XFPM_DO_SUSPEND,
+                                                         XFPM_DO_HIBERNATE,
+-                                                        XFPM_DO_HIBERNATE,
++                                                        XFPM_DO_SUSPEND,
+                                                         G_PARAM_READWRITE));
+ 
+     /**
