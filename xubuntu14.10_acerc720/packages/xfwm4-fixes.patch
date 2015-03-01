@@ -1,3 +1,7 @@
+Author: Hugh Greenberg <hugegreenbug@gmail.com>
+Desc: Fix for the mouse being grabbed when clicking directly underneath
+the title bar. Also, changes to disable the compositor.
+
 diff -urN xfwm4-4.11.1/debian/rules xfwm4-4.11.1.new/debian/rules
 --- xfwm4-4.11.1/debian/rules	2014-04-09 03:14:41.000000000 -0400
 +++ xfwm4-4.11.1.new/debian/rules	2015-01-12 18:52:47.690511033 -0500

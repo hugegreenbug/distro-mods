@@ -1,2 +1,0 @@
-shlibs:Depends=libc6 (>= 2.15), libgdk-pixbuf2.0-0 (>= 2.22.0), libgl1-mesa-glx | libgl1, libglib2.0-0 (>= 2.12.0), libglu1-mesa | libglu1, libx11-6, libxext6, libxmu6, libxt6
-misc:Depends=

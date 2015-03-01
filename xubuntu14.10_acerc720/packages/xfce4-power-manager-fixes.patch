@@ -1,3 +1,6 @@
+Author: Hugh Greenberg <hugegreenbug@gmail.com>
+Desc: Fix for monitor being blank on resume
+
 diff -ruN xfce4-power-manager-1.4.1/src/xfpm-power.c xfce4-power-manager-1.4.1.reallygood//src/xfpm-power.c
 --- xfce4-power-manager-1.4.1/src/xfpm-power.c	2014-08-29 10:07:22.000000000 -0600
 +++ xfce4-power-manager-1.4.1.reallygood//src/xfpm-power.c	2015-02-28 15:38:39.616337231 -0700
