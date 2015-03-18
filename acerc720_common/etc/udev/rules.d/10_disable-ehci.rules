@@ -1,2 +1,0 @@
-ACTION=="add", SUBSYSTEM=="pci", DRIVER=="ehci_hcd", \
-    RUN+="/bin/sh -c 'echo -n %k > %S%p/driver/unbind'"

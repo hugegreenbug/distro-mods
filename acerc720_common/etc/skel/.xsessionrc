@@ -1,1 +1,0 @@
-ID=`xinput | grep cyapa | cut -f 2 | sed -e 's/id=//'`

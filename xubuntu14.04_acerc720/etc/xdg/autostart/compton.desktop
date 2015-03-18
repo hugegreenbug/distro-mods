@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Name=Compton
-Comment=Compton compositor
-Exec=compton -b
-OnlyShowIn=XFCE;
