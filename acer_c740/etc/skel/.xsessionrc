@@ -1,2 +1,0 @@
-ID=`xinput | grep Elan | cut -f 2 | sed -e 's/id=//'`
-xinput --set-ptr-feedback "$ID" 0 1 1

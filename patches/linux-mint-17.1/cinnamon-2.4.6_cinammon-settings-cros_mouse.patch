@@ -1,0 +1,52 @@
+--- files/usr/lib/cinnamon-settings/modules/cs_mouse.py	2015-01-19 08:42:12.000000000 -0700
++++ files.new/usr/lib/cinnamon-settings/modules/cs_mouse.py	2015-03-20 21:28:27.119523316 -0600
+@@ -56,8 +56,7 @@
+             vbox.add(Gtk.Separator.new(Gtk.Orientation.HORIZONTAL))         
+             
+             section = Section(_("Pointer Speed"))  
+-            section.add_expand(GSettingsRange(_("Acceleration:"), _("Slow"), _("Fast"), 1.0, 10.0, False, "double", False, "org.cinnamon.settings-daemon.peripherals.mouse", "motion-acceleration", None, adjustment_step = 1.0))            
+-            section.add_expand(GSettingsRange(_("Sensitivity:"), _("Low"), _("High"), 1, 10, False, "int", False, "org.cinnamon.settings-daemon.peripherals.mouse", "motion-threshold", None, adjustment_step = 1))
++            section.add_expand(GSettingsRange(_("Sensitivity:"), _("Low"), _("High"), 1, 5, False, "int", False, "org.cinnamon.settings-daemon.peripherals.mouse", "motion-threshold", None, adjustment_step = 1))
+             vbox.add(section)
+ 
+             vbox.add(Gtk.Separator.new(Gtk.Orientation.HORIZONTAL))         
+@@ -85,38 +84,22 @@
+             section = Section(_("General"))  
+             section.add(GSettingsCheckButton(_("Enable touchpad"), "org.cinnamon.settings-daemon.peripherals.touchpad", "touchpad-enabled", None))
+             section.add(GSettingsCheckButton(_("Tap to click"), "org.cinnamon.settings-daemon.peripherals.touchpad", "tap-to-click", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled"))   
+-            section.add(GSettingsCheckButton(_("Disable touchpad while typing"), "org.cinnamon.settings-daemon.peripherals.touchpad", "disable-while-typing", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled"))
+             vbox.add(section)
+             
+             vbox.add(Gtk.Separator.new(Gtk.Orientation.HORIZONTAL))
+ 
+             section = Section(_("Scrolling"))  
+-            scroll_method = [["disabled", _("Disabled")], ["edge-scrolling", _("Edge Scrolling")], ["two-finger-scrolling", _("Two-finger scrolling")]]
+-            scroll_method_combo = GSettingsComboBox(_("Panel layout"), "org.cinnamon.settings-daemon.peripherals.touchpad", "scroll-method", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled", scroll_method)
+-            section.add(scroll_method_combo)
+             section.add(GSettingsCheckButton(_("Enable natural scrolling"), "org.cinnamon.settings-daemon.peripherals.touchpad", "natural-scroll", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled"))
+-            section.add(GSettingsCheckButton(_("Enable horizontal scrolling"), "org.cinnamon.settings-daemon.peripherals.touchpad", "horiz-scroll-enabled", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled"))            
+             vbox.add(section)
+             
+             vbox.add(Gtk.Separator.new(Gtk.Orientation.HORIZONTAL))
+ 
+             section = Section(_("Pointer Speed"))  
+-            section.add_expand(GSettingsRange(_("Acceleration:"), _("Slow"), _("Fast"), 1.0, 10.0, False, "double", False, "org.cinnamon.settings-daemon.peripherals.touchpad", "motion-acceleration", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled", adjustment_step = 1.0))
+-            section.add_expand(GSettingsRange(_("Sensitivity:"), _("Low"), _("High"), 1, 10, False, "int", False, "org.cinnamon.settings-daemon.peripherals.touchpad", "motion-threshold", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled", adjustment_step = 1))
++            section.add_expand(GSettingsRange(_("Sensitivity:"), _("Low"), _("High"), 1, 5, False, "int", False, "org.cinnamon.settings-daemon.peripherals.touchpad", "motion-threshold", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled", adjustment_step = 1))
+             vbox.add(section) 
+ 
+             vbox.add(Gtk.Separator.new(Gtk.Orientation.HORIZONTAL))
+                            
+-            section = Section(_("Advanced"))
+-            section.add(Gtk.Label(_("Options for single-button touchpads:")))
+-
+-
+-            button_list = [[0, _("Disabled")], [1, _("Left button")], [2, _("Middle button")], [3, _("Right button")]]
+-
+-            section.add_indented(GSettingsIntComboBox(_("Two-finger click emulation:"), "org.cinnamon.settings-daemon.peripherals.touchpad", "two-finger-click", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled", button_list, False))
+-            section.add_indented(GSettingsIntComboBox(_("Three-finger click emulation:"), "org.cinnamon.settings-daemon.peripherals.touchpad", "three-finger-click", "org.cinnamon.settings-daemon.peripherals.touchpad/touchpad-enabled", button_list, False))
+-            vbox.add(section)
+-            
+             self.touchbox.pack_start(vbox, False, False, 2)                
+ 
+             self.sidePage.add_widget(self.notebook)            
