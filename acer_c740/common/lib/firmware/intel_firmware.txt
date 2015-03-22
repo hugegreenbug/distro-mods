@@ -1,0 +1,1 @@
+Latest intel firmware for the 7260 wifi card: https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-7260-ucode-25.16.12.0.tgz
