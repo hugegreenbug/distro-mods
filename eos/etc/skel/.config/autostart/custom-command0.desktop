@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name[en]=Custom Command
+Comment[en]=xbindkeys
+Exec=xbindkeys
+Icon=application-default-icon
+X-GNOME-Autostart-enabled=true
+Type=Application
